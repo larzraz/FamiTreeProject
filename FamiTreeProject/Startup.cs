@@ -31,7 +31,7 @@ namespace FamiTreeProject
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -51,6 +51,7 @@ namespace FamiTreeProject
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseFileServer();
 
             app.UseMvc(routes =>
             {
