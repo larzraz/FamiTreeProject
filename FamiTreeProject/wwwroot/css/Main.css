@@ -176,6 +176,7 @@ span.accent {
 #home #mainContent {
     float: right;
     width: 700px;
+    height:1500px;
     padding-right: 0;
     margin-right: 0;
 }
@@ -183,6 +184,7 @@ span.accent {
 #home #secondaryContent {
     float: left;
     width: 400px;
+    height:800px;
     margin-top: 0;
 }
 
