@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace FamiTreeProject.ViewComponents
 {
+    [ViewComponent]
     public class FamilyMemberViewComponent:ViewComponent
     {
         private readonly FamilyMembersDataContext _familyMembers;

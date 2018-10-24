@@ -10,9 +10,16 @@ namespace FamiTreeProject.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly FamilyMembersDataContext _familyMember;
+
+        public HomeController(FamilyMembersDataContext fmc)
+        {
+            _familyMember = fmc;
+        }
         public IActionResult Index()
         {
-            return View();
+            
+            return View(_familyMember.GetFamilyMembers());
         }
 
         public IActionResult About()

@@ -19,6 +19,7 @@
         </figure>
     </aside>
     <main class="hg__main">
+        @model IEnumerable<FamiTreeProject.Models.FamilyMember>
         <div class="tree">
                 <ul>
                     <li>
@@ -28,52 +29,94 @@
                         </figure>                  
                             <ul>     
                                     <li>
+                                        @foreach (var fm in Model)
+                                        {
+                                            @if (fm.Generation == 1 && fm.GenerationPlaceID == 1)
+                                            {
                                         <figure class="human">
                                             <img class="person" src="img/persona.png">
-                                            <figcaption>Hannah</figcaption>
+                                            <figcaption>@fm.Name</figcaption>
                                         </figure>
+                                                }
+                                            }
                                     </li>
                          
                                     <li>
-                                        <figure class="human">
-                                            <img class="person" src="img/persona.png">
-                                            <figcaption>Nannah</figcaption>
-                                        </figure>
-                                        <ul>                                           
-                                                <li>
-                                                    <figure class="human">
-                                                        <img class="person" src="img/persona.png">
-                                                        <figcaption>Han</figcaption>
-                                                    </figure>
-                                                </li>
-                                          
-                                                <li>
-                                                    <figure class="human">
-                                                        <img class="person" src="img/persona.png">
-                                                        <figcaption>Hannsh</figcaption>
-                                                    </figure>
-                                                    <ul>
-                                                        <li>
-                                                            <figure class="human">
-                                                                <img class="person" src="img/persona.png">
-                                                                <figcaption>Hanah</figcaption>
-                                                            </figure>
-                                                        </li>
-                                                        <li>
-                                                            <figure class="human">
-                                                                <img class="person" src="img/persona.png">
-                                                                <figcaption>annah</figcaption>
-                                                            </figure>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            <li>
+                                        @foreach (var fm in Model)
+                                        {
+                                            @if (fm.Generation == 1 && fm.GenerationPlaceID == 2)
+                                            {
                                                 <figure class="human">
                                                     <img class="person" src="img/persona.png">
-                                                    <figcaption>HHannah</figcaption>
+                                                    <figcaption>@fm.Name</figcaption>
                                                 </figure>
-                                            </li>
                                             }
+                                        }
+                                        <ul>
+                                            <li>
+                                                @foreach (var fm in Model)
+                                                {
+                                                    @if (fm.Generation == 2 && fm.GenerationPlaceID == 1)
+                                                    {
+                                                        <figure class="human">
+                                                            <img class="person" src="img/persona.png">
+                                                            <figcaption>@fm.Name</figcaption>
+                                                        </figure>
+                                                    }
+                                                }
+                                            </li>
+
+                                            <li>
+                                                @foreach (var fm in Model)
+                                                {
+                                                    @if (fm.Generation == 2 && fm.GenerationPlaceID == 2)
+                                                    {
+                                                        <figure class="human">
+                                                            <img class="person" src="img/persona.png">
+                                                            <figcaption>@fm.Name</figcaption>
+                                                        </figure>
+                                                    }
+                                                }
+                                                <ul>
+                                                    <li>
+                                                        @foreach (var fm in Model)
+                                                        {
+                                                            @if (fm.Generation == 3 && fm.GenerationPlaceID == 1)
+                                                            {
+                                                                <figure class="human">
+                                                                    <img class="person" src="img/persona.png">
+                                                                    <figcaption>@fm.Name</figcaption>
+                                                                </figure>
+                                                            }
+                                                        }
+                                                    </li>
+                                                    <li>
+                                                        @foreach (var fm in Model)
+                                                        {
+                                                            @if (fm.Generation == 3 && fm.GenerationPlaceID == 2)
+                                                            {
+                                                                <figure class="human">
+                                                                    <img class="person" src="img/persona.png">
+                                                                    <figcaption>@fm.Name</figcaption>
+                                                                </figure>
+                                                            }
+                                                        }
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                @foreach (var fm in Model)
+                                                {
+                                                    @if (fm.Generation == 2 && fm.GenerationPlaceID == 3)
+                                                    {
+                                                        <figure class="human">
+                                                            <img class="person" src="img/persona.png">
+                                                            <figcaption>@fm.Name</figcaption>
+                                                        </figure>
+                                                    }
+                                                }
+                                            </li>
+                                            
                                         </ul>
                                     </li>                               
                             </ul>                        
