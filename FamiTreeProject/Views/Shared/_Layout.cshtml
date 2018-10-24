@@ -1,42 +1,85 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>FamiTree</title>
-    <link href="/css/main.css" rel="stylesheet" type="text/css" media="screen, projection">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/Main.css">
+    <title>FAMTREE</title>
 </head>
-<body id="home" class="no-js">
-    <div id="wrapper">
-        <header id="mainHeader">
-            <a href="/" title="home" class="logo">
-                <!-- I need this div because IE is an affront to mankind-->
-                <div>
-                    <h1>FamiTrees</h1>
-                </div>
-            </a>
-        </header>
-    </div>
-    <div id="contentWrapper">
-        <section id="mainContent">
-            @RenderBody()
-        </section>
-        <aside id="secondaryContent">
-            @if (IsSectionDefined("secondaryContent"))
-            {
-                @RenderSection("secondaryContent", false)
-
-            }
-            else
-            { 
-
-                <div id="trivia" class="callOut">
-                    <h1>Did You Know?</h1>
-                    <p>California produces over 17 million gallons of wine each year!</p>
-                </div>
-            }
-        </aside>
-    </div>
-
-
+<body class="hg">
+    @RenderBody()
+ 
+    <aside class="hg__left">
+        <button type="button">Hint 4</button>
+        <button type="button">Hint 3</button>
+        <button type="button">Hint 2</button>
+        <button type="button">Hint 1</button>
+        <figure class="human">
+            <img class="persona" src="img/persona.png" alt="person">
+            <figcaption>Who is this?</figcaption>
+        </figure>
+    </aside>
+    <main class="hg__main">
+        <div class="tree">
+                <ul>
+                    <li>
+                        <figure class="human">
+                            <img class="person" src="img/persona.png">
+                            <figcaption>Hannah</figcaption>
+                        </figure>                  
+                            <ul>     
+                                    <li>
+                                        <figure class="human">
+                                            <img class="person" src="img/persona.png">
+                                            <figcaption>Hannah</figcaption>
+                                        </figure>
+                                    </li>
+                         
+                                    <li>
+                                        <figure class="human">
+                                            <img class="person" src="img/persona.png">
+                                            <figcaption>Nannah</figcaption>
+                                        </figure>
+                                        <ul>                                           
+                                                <li>
+                                                    <figure class="human">
+                                                        <img class="person" src="img/persona.png">
+                                                        <figcaption>Han</figcaption>
+                                                    </figure>
+                                                </li>
+                                          
+                                                <li>
+                                                    <figure class="human">
+                                                        <img class="person" src="img/persona.png">
+                                                        <figcaption>Hannsh</figcaption>
+                                                    </figure>
+                                                    <ul>
+                                                        <li>
+                                                            <figure class="human">
+                                                                <img class="person" src="img/persona.png">
+                                                                <figcaption>Hanah</figcaption>
+                                                            </figure>
+                                                        </li>
+                                                        <li>
+                                                            <figure class="human">
+                                                                <img class="person" src="img/persona.png">
+                                                                <figcaption>annah</figcaption>
+                                                            </figure>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            <li>
+                                                <figure class="human">
+                                                    <img class="person" src="img/persona.png">
+                                                    <figcaption>HHannah</figcaption>
+                                                </figure>
+                                            </li>
+                                            }
+                                        </ul>
+                                    </li>                               
+                            </ul>                        
+                        </li>
+                </ul>            
+        </div>
+    </main>
 </body>
 </html>
