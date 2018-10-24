@@ -32,7 +32,7 @@ namespace FamiTreeProject
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-           // services.AddTransient<FamilyMembersDataContext>();
+            services.AddTransient<FamilyMembersDataContext>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
