@@ -17,7 +17,7 @@
                             @if (fm.Generation == 1 && fm.GenerationPlaceID == 1)
                             {
                                 <figure class="human">
-                                    <div id="@fm.HintId" class="image @(fm.HintId)"></div>
+                                    <div id="@fm.HintId" class="image"></div>
 
                                     <figcaption>@fm.Name</figcaption>
                                 </figure>
@@ -159,7 +159,9 @@
         if
         ("persona " + imghit.attributes[0].value == img.attributes[1].value) {
             document.getElementById("demos").innerHTML = "Winner " + imghit.attributes[0].value;
-            imghit
+            var change;
+            change = document.getElementById(lement);
+            change.attributes[1].value = "hanna";
 
         } else {
             document.getElementById("demos").innerHTML = "yolo";
