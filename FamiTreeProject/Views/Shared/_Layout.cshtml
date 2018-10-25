@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@model FamiTreeProject.ViewModels.HomeViewModel
+@{var familyMember = Model.SelectedFamilyMember;
+  var familyMembers = Model.FamilyMembers; }
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,123 +10,39 @@
     <title>FAMTREE</title>
 </head>
 <body class="hg">
-    @RenderBody()
- 
+
+
     <aside class="hg__left">
         <button type="button">Hint 4</button>
         <button type="button">Hint 3</button>
         <button type="button">Hint 2</button>
-        <button type="button">Hint 1</button>
+        <button onclick="myFunction()" type="button">Hint 1</button>
         <figure class="human">
-            <img class="persona" src="img/persona.png" alt="person">
-            <figcaption>Who is this?</figcaption>
+            <a>
+                <img id="hint" class="persona @(familyMember.HintId)" src="img/@(familyMember.Name).png" alt="person">
+                <figcaption>Who is this?</figcaption>
+            </a>
         </figure>
     </aside>
-    <main class="hg__main">
-        @model IEnumerable<FamiTreeProject.Models.FamilyMember>
-        <div class="tree">
-                <ul>
-                    <li>
-                        <figure class="human">
-                            <img class="person" src="img/persona.png">
-                            <figcaption>Hannah</figcaption>
-                        </figure>                  
-                            <ul>     
-                                    <li>
-                                        @foreach (var fm in Model)
-                                        {
-                                            @if (fm.Generation == 1 && fm.GenerationPlaceID == 1)
-                                            {
-                                        <figure class="human">
-                                            <img class="person" src="img/persona.png">
-                                            <figcaption>@fm.Name</figcaption>
-                                        </figure>
-                                                }
-                                            }
-                                    </li>
-                         
-                                    <li>
-                                        @foreach (var fm in Model)
-                                        {
-                                            @if (fm.Generation == 1 && fm.GenerationPlaceID == 2)
-                                            {
-                                                <figure class="human">
-                                                    <img class="person" src="img/persona.png">
-                                                    <figcaption>@fm.Name</figcaption>
-                                                </figure>
-                                            }
-                                        }
-                                        <ul>
-                                            <li>
-                                                @foreach (var fm in Model)
-                                                {
-                                                    @if (fm.Generation == 2 && fm.GenerationPlaceID == 1)
-                                                    {
-                                                        <figure class="human">
-                                                            <img class="person" src="img/persona.png">
-                                                            <figcaption>@fm.Name</figcaption>
-                                                        </figure>
-                                                    }
-                                                }
-                                            </li>
+    <h2 id="demo">Halløj</h2>
 
-                                            <li>
-                                                @foreach (var fm in Model)
-                                                {
-                                                    @if (fm.Generation == 2 && fm.GenerationPlaceID == 2)
-                                                    {
-                                                        <figure class="human">
-                                                            <img class="person" src="img/persona.png">
-                                                            <figcaption>@fm.Name</figcaption>
-                                                        </figure>
-                                                    }
-                                                }
-                                                <ul>
-                                                    <li>
-                                                        @foreach (var fm in Model)
-                                                        {
-                                                            @if (fm.Generation == 3 && fm.GenerationPlaceID == 1)
-                                                            {
-                                                                <figure class="human">
-                                                                    <img class="person" src="img/persona.png">
-                                                                    <figcaption>@fm.Name</figcaption>
-                                                                </figure>
-                                                            }
-                                                        }
-                                                    </li>
-                                                    <li>
-                                                        @foreach (var fm in Model)
-                                                        {
-                                                            @if (fm.Generation == 3 && fm.GenerationPlaceID == 2)
-                                                            {
-                                                                <figure class="human">
-                                                                    <img class="person" src="img/persona.png">
-                                                                    <figcaption>@fm.Name</figcaption>
-                                                                </figure>
-                                                            }
-                                                        }
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                @foreach (var fm in Model)
-                                                {
-                                                    @if (fm.Generation == 2 && fm.GenerationPlaceID == 3)
-                                                    {
-                                                        <figure class="human">
-                                                            <img class="person" src="img/persona.png">
-                                                            <figcaption>@fm.Name</figcaption>
-                                                        </figure>
-                                                    }
-                                                }
-                                            </li>
-                                            
-                                        </ul>
-                                    </li>                               
-                            </ul>                        
-                        </li>
-                </ul>            
-        </div>
-    </main>
+
+    <script>
+
+        function myFunction() {
+            var x = document.getElementById("hint");
+            var txt = "Hajæ";
+            var i;
+
+
+            for (i = 0; i < x.attributes.length; i++) {
+                txt = txt + x.attributes[i].name + " = " + x.attributes[i].value + "<br>";
+            }
+            document.getElementById("demo").innerHTML = txt;
+        }
+    </script>
+
+   
+    @RenderBody()
 </body>
 </html>

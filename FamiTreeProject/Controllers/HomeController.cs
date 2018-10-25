@@ -5,21 +5,25 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FamiTreeProject.Models;
+using FamiTreeProject.ViewModels;
 
 namespace FamiTreeProject.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly FamilyMembersDataContext _familyMember;
+        private readonly HomeViewModel hvm;
+        
 
-        public HomeController(FamilyMembersDataContext fmc)
+        public HomeController()
         {
-            _familyMember = fmc;
+
+            hvm = new HomeViewModel();
+            
         }
+       
         public IActionResult Index()
         {
-            
-            return View(_familyMember.GetFamilyMembers());
+            return View(hvm);
         }
 
         public IActionResult About()

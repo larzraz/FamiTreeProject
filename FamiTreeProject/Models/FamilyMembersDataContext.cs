@@ -15,7 +15,7 @@ namespace FamiTreeProject.Models
                 new FamilyMember
                 {
                     HintId = 1,
-                    Name = "Hannah",
+                    Name = "Hanna",
                     Generation = 1,
                     GenerationPlaceID = 1,
                     ParentID = 0,
@@ -58,7 +58,7 @@ namespace FamiTreeProject.Models
                 new FamilyMember
                 {
                     HintId = 6,
-                    Name = "Hannah",
+                    Name = "Hunnah",
                     Generation = 3,
                     GenerationPlaceID = 1,
                     ParentID = 4,

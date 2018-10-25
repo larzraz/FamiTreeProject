@@ -7,6 +7,7 @@ namespace FamiTreeProject.Models
 {
     public class Board
     {
+        
         public int SelectedId { get; set; }
         public int FamilyMemberId { get; set; }
         public int HintCounter { get; set; }
@@ -15,5 +16,8 @@ namespace FamiTreeProject.Models
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public DateTime TimeSpent { get; set; }
+
+     
+        
     }
 }
