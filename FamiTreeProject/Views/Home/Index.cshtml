@@ -1,111 +1,171 @@
 ﻿@model FamiTreeProject.ViewModels.HomeViewModel
- @{var familyMembers = Model.FamilyMembers; }
+@{var familyMembers = Model.FamilyMembers; }
 
-    <main class="hg__main">
+<main class="hg__main">
 
-        <div class="tree">
-            <ul>
-                <li>
-                    <figure class="human">
-                        <img class="person" src="img/persona.png">
-                        <figcaption>Hannah</figcaption>
-                    </figure>
-                    <ul>
-                        <li>
-                            @foreach (var fm in familyMembers)
+    <div class="tree">
+        <ul>
+            <li>
+                <figure class="human">
+                    <img class="person" src="img/persona.png">
+                    <figcaption>Hannah</figcaption>
+                </figure>
+                <ul>
+                    <li>
+                        @foreach (var fm in familyMembers)
+                        {
+                            @if (fm.Generation == 1 && fm.GenerationPlaceID == 1)
                             {
-                                @if (fm.Generation == 1 && fm.GenerationPlaceID == 1)
-                                {
-                                    <figure class="human">
-                                        <div id="@fm.HintId" class="image @(fm.HintId)"></div>
+                                <figure class="human">
+                                    <div id="@fm.HintId" class="image @(fm.HintId)"></div>
 
-                                        <figcaption>@fm.Name</figcaption>
-                                    </figure>
-                                }
+                                    <figcaption>@fm.Name</figcaption>
+                                </figure>
                             }
-                        </li>
+                        }
+                    </li>
 
-                        <li>
-                            @foreach (var fm in familyMembers)
+                    <li>
+                        @foreach (var fm in familyMembers)
+                        {
+                            @if (fm.Generation == 1 && fm.GenerationPlaceID == 2)
                             {
-                                @if (fm.Generation == 1 && fm.GenerationPlaceID == 2)
-                                {
-                                    <figure class="human">
-                                        <img id="@fm.HintId" class="person" src="img/persona.png">
-                                        <figcaption>@fm.Name</figcaption>
-                                    </figure>
-                                }
+                                <figure class="human">
+                                    <img id="@fm.HintId" class="person" src="img/persona.png">
+                                    <figcaption>@fm.Name</figcaption>
+                                </figure>
                             }
-                            <ul>
-                                <li>
-                                    @foreach (var fm in familyMembers)
+                        }
+                        <ul>
+                            <li>
+                                @foreach (var fm in familyMembers)
+                                {
+                                    @if (fm.Generation == 2 && fm.GenerationPlaceID == 1)
                                     {
-                                        @if (fm.Generation == 2 && fm.GenerationPlaceID == 1)
-                                        {
-                                            <figure class="human">
-                                                <img id="@fm.HintId" class="person" src="img/persona.png">
-                                                <figcaption>@fm.Name</figcaption>
-                                            </figure>
-                                        }
+                                        <figure class="human">
+                                            <img id="@fm.HintId" class="person" src="img/persona.png">
+                                            <figcaption>@fm.Name</figcaption>
+                                        </figure>
                                     }
-                                </li>
+                                }
+                            </li>
 
-                                <li>
-                                    @foreach (var fm in familyMembers)
+                            <li>
+                                @foreach (var fm in familyMembers)
+                                {
+                                    @if (fm.Generation == 2 && fm.GenerationPlaceID == 2)
                                     {
-                                        @if (fm.Generation == 2 && fm.GenerationPlaceID == 2)
-                                        {
-                                            <figure class="human">
-                                                <img id="@fm.HintId" class="person" src="img/persona.png">
-                                                <figcaption>@fm.Name</figcaption>
-                                            </figure>
-                                        }
+                                        <figure class="human">
+                                            <img id="@fm.HintId" class="person" src="img/persona.png">
+                                            <figcaption>@fm.Name</figcaption>
+                                        </figure>
                                     }
-                                    <ul>
-                                        <li>
-                                            @foreach (var fm in familyMembers)
+                                }
+                                <ul>
+                                    <li>
+                                        @foreach (var fm in familyMembers)
+                                        {
+                                            @if (fm.Generation == 3 && fm.GenerationPlaceID == 1)
                                             {
-                                                @if (fm.Generation == 3 && fm.GenerationPlaceID == 1)
-                                                {
-                                                    <figure class="human">
-                                                        <img id="@fm.HintId" class="person" src="img/persona.png">
-                                                        <figcaption>@fm.Name</figcaption>
-                                                    </figure>
-                                                }
+                                                <figure class="human">
+                                                    <img id="@fm.HintId" class="person" src="img/persona.png">
+                                                    <figcaption>@fm.Name</figcaption>
+                                                </figure>
                                             }
-                                        </li>
-                                        <li>
-                                            @foreach (var fm in familyMembers)
+                                        }
+                                    </li>
+                                    <li>
+                                        @foreach (var fm in familyMembers)
+                                        {
+                                            @if (fm.Generation == 3 && fm.GenerationPlaceID == 2)
                                             {
-                                                @if (fm.Generation == 3 && fm.GenerationPlaceID == 2)
-                                                {
-                                                    <figure class="human">
-                                                        <img id="@fm.HintId" class="person" src="img/persona.png">
-                                                        <figcaption>@fm.Name</figcaption>
-                                                    </figure>
-                                                }
+                                                <figure class="human">
+                                                    <img id="@fm.HintId" class="person" src="img/persona.png">
+                                                    <figcaption>@fm.Name</figcaption>
+                                                </figure>
                                             }
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    @foreach (var fm in familyMembers)
+                                        }
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                @foreach (var fm in familyMembers)
+                                {
+                                    @if (fm.Generation == 2 && fm.GenerationPlaceID == 3)
                                     {
-                                        @if (fm.Generation == 2 && fm.GenerationPlaceID == 3)
-                                        {
-                                            <figure class="human">
-                                                <img id="@fm.HintId" class="person" src="img/persona.png">
-                                                <figcaption>@fm.Name</figcaption>
-                                            </figure>
-                                        }
+                                        <figure class="human">
+                                            <img id="@fm.HintId" class="person" src="img/persona.png">
+                                            <figcaption>@fm.Name</figcaption>
+                                        </figure>
                                     }
-                                </li>
+                                }
+                            </li>
 
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </main>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</main>
+
+
+<script>
+    var img = document.getElementById('hint');
+    var lement;
+    var imghit = document.getElementById(lement);
+   
+    
+    var hanna = document.getElementById('1');
+    var jonna = document.getElementById('2');
+    var jeff = document.getElementById('3');
+    var jorah = document.getElementById('4');
+    var rasmus = document.getElementById('5');
+    var hunna = document.getElementById('6');
+    var benjamin = document.getElementById('7');
+
+    hanna.onclick = function () {
+        
+        document.getElementById("demo").innerHTML = "1";
+        lement = "1";
+        imghit = document.getElementById(lement);
+        compareImages();
+    }
+
+    jonna.onclick = function () {
+
+        document.getElementById("demo").innerHTML = "2";
+        lement = "2";
+        imghit = document.getElementById(lement);
+        compareImages();
+    }
+
+    jeff.onclick = function () {
+
+        document.getElementById("demo").innerHTML = "3";
+        lement = "3";
+        imghit = document.getElementById(lement);
+        compareImages();
+    }
+
+    jorah.onclick = function () {
+
+        document.getElementById("demo").innerHTML = "4";
+        lement = "4";
+        imghit = document.getElementById(lement);
+        compareImages();
+    }
+    function compareImages() {
+        if
+        ("persona " + imghit.attributes[0].value == img.attributes[1].value) {
+            document.getElementById("demos").innerHTML = "Winner " + imghit.attributes[0].value;
+            imghit
+
+        } else {
+            document.getElementById("demos").innerHTML = "yolo";
+        }
+
+
+    }
+</script>
 
