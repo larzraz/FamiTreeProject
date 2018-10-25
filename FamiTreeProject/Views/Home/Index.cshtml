@@ -3,7 +3,7 @@
 
 <main class="hg__main">
 
-    <div class="tree">
+    <box class="tree">
         <ul>
             <li>
                 <figure class="human">
@@ -16,11 +16,13 @@
                         {
                             @if (fm.Generation == 1 && fm.GenerationPlaceID == 1)
                             {
-                                <figure class="human">
-                                    <div id="@fm.HintId" class="image"></div>
+                        <figure class="human">
+                            
+                            <div id="@fm.HintId" class="image"></div>
+                         
 
-                                    <figcaption>@fm.Name</figcaption>
-                                </figure>
+                            <figcaption>@fm.Name</figcaption>
+                        </figure>
                             }
                         }
                     </li>
@@ -30,10 +32,13 @@
                         {
                             @if (fm.Generation == 1 && fm.GenerationPlaceID == 2)
                             {
-                                <figure class="human">
-                                    <img id="@fm.HintId" class="person" src="img/persona.png">
-                                    <figcaption>@fm.Name</figcaption>
-                                </figure>
+                        <figure class="humancentered">
+                            <div>
+                                <div id="@fm.HintId" class="image"></div>
+
+                                <figcaption>@fm.Name</figcaption>
+                            </div>
+                        </figure>
                             }
                         }
                         <ul>
@@ -43,7 +48,8 @@
                                     @if (fm.Generation == 2 && fm.GenerationPlaceID == 1)
                                     {
                                         <figure class="human">
-                                            <img id="@fm.HintId" class="person" src="img/persona.png">
+                                            <div id="@fm.HintId" class="image"></div>
+
                                             <figcaption>@fm.Name</figcaption>
                                         </figure>
                                     }
@@ -55,10 +61,13 @@
                                 {
                                     @if (fm.Generation == 2 && fm.GenerationPlaceID == 2)
                                     {
-                                        <figure class="human">
-                                            <img id="@fm.HintId" class="person" src="img/persona.png">
-                                            <figcaption>@fm.Name</figcaption>
-                                        </figure>
+                                <figure class="humancentered">
+                                    <div>
+                                        <div id="@fm.HintId" class="image"></div>
+
+                                        <figcaption>@fm.Name</figcaption>
+                                        </div>
+                                </figure>
                                     }
                                 }
                                 <ul>
@@ -68,7 +77,7 @@
                                             @if (fm.Generation == 3 && fm.GenerationPlaceID == 1)
                                             {
                                                 <figure class="human">
-                                                    <img id="@fm.HintId" class="person" src="img/persona.png">
+                                                    <div id="@fm.HintId" class="image"></div>
                                                     <figcaption>@fm.Name</figcaption>
                                                 </figure>
                                             }
@@ -80,7 +89,7 @@
                                             @if (fm.Generation == 3 && fm.GenerationPlaceID == 2)
                                             {
                                                 <figure class="human">
-                                                    <img id="@fm.HintId" class="person" src="img/persona.png">
+                                                    <div id="@fm.HintId" class="image"></div>
                                                     <figcaption>@fm.Name</figcaption>
                                                 </figure>
                                             }
@@ -94,7 +103,7 @@
                                     @if (fm.Generation == 2 && fm.GenerationPlaceID == 3)
                                     {
                                         <figure class="human">
-                                            <img id="@fm.HintId" class="person" src="img/persona.png">
+                                            <div id="@fm.HintId" class="image"></div>
                                             <figcaption>@fm.Name</figcaption>
                                         </figure>
                                     }
@@ -155,14 +164,48 @@
         imghit = document.getElementById(lement);
         compareImages();
     }
+
+    rasmus.onclick = function () {
+
+        document.getElementById("demo").innerHTML = "5";
+        lement = "5";
+        imghit = document.getElementById(lement);
+        compareImages();
+    }
     function compareImages() {
         if
         ("persona " + imghit.attributes[0].value == img.attributes[1].value) {
-            document.getElementById("demos").innerHTML = "Winner " + imghit.attributes[0].value;
+           
             var change;
+            var personId = null;
+            var imghitId = imghit.attributes[0].value;
             change = document.getElementById(lement);
-            change.attributes[1].value = "hanna";
 
+            switch (imghitId) {
+                case "1":
+                    personId = "hanna";
+                    break;
+                case "2":
+                    personId = "jonna";
+                    break;
+                case  "3":
+                    personId = "jeff";
+                    break;
+                case  "4":
+                    personId = "jorah";
+                    break;
+                case  "5":
+                    personId = "rasmus";
+                    break;
+                default:
+                    personId = "rasmus";
+            }
+
+            change.attributes[1].value = personId;
+            document.getElementById("demos").innerHTML = imghit.attributes[1].value + imghit.attributes[0].value;
+
+                
+            
         } else {
             document.getElementById("demos").innerHTML = "yolo";
         }

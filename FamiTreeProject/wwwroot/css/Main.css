@@ -29,12 +29,21 @@
     grid-template-columns: 200px 1fr;
     grid-template-rows: 1fr;
     min-height: 100vh;
+
 }
 
 /*************************************************************************************************Sidebar*/
 
 .human {
     margin-top: 40px;
+   
+}
+
+.humancentered{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: row;
 }
 
 .persona {
@@ -49,12 +58,37 @@
 div.image {
     content: url(/img/persona.png);
     width: 80px;
-    height: auto;
+    height: 63px;
    
 }
 
 div.hanna {
     content: url(/img/Hanna.png);
+    width: 80px;
+    height: auto;
+}
+
+div.jonna {
+    content: url(/img/Jonna.png);
+    width: 80px;
+    height: auto;
+    
+}
+
+div.jeff {
+    content: url(/img/Jeff.png);
+    width: 80px;
+    height: auto;
+}
+
+div.jorah {
+    content: url(/img/Jorah.png);
+    width: 80px;
+    height: auto;
+}
+
+div.rasmus {
+    content: url(/img/Rasmus.png);
     width: 80px;
     height: auto;
 }
@@ -73,6 +107,11 @@ div.hanna {
     -moz-transition: all 0.5s;
 }
 
+.box {
+    float: left;
+    width: 33.33%;
+    padding: 50px;
+}
 .tree li {
     float: left;
     text-align: center;
