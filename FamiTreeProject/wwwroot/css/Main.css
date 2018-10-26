@@ -59,6 +59,7 @@ div.image {
     content: url(/img/persona.png);
     width: 80px;
     height: 63px;
+    
    
 }
 
@@ -66,13 +67,14 @@ div.hanna {
     content: url(/img/Hanna.png);
     width: 80px;
     height: auto;
+    
 }
 
 div.jonna {
     content: url(/img/Jonna.png);
     width: 80px;
     height: auto;
-    
+   
 }
 
 div.jeff {
@@ -92,6 +94,27 @@ div.rasmus {
     width: 80px;
     height: auto;
 }
+.generation1 {
+    content: url(/img/persona.png);
+    width: 80px;
+    height: 63px;
+   
+}
+
+.generation2 {
+    content: url(/img/persona.png);
+    width: 80px;
+    height: 63px;
+    
+}
+
+.generation3 {
+    content: url(/img/persona.png);
+    width: 80px;
+    height: 63px;
+    
+}
+
 
 /*************************************************************************************************Family Tree*/
 {

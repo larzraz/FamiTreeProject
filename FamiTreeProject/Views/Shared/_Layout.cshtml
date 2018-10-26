@@ -13,10 +13,10 @@
 
 
     <aside class="hg__left">
-        <button type="button">Hint 4</button>
-        <button type="button">Hint 3</button>
-        <button type="button">Hint 2</button>
-        <button onclick="myFunction()" type="button">Hint 1</button>
+        <button id="hint4" type="button">Hint 4</button>
+        <button id="hint3" type="button">Hint 3</button>
+        <button id="hint2" type="button">Hint 2</button>
+        <button id="hint1" onclick="myFunction()" type="button">Hint 1</button>
         <figure class="human">
             <a>
                 <img id="hint" class="persona @(familyMember.HintId)" src="img/@(familyMember.Name).png" alt="person">
@@ -31,9 +31,10 @@
     <script>
 
         function myFunction() {
-            var x = document.getElementById("1");
+            var x = document.getElementById("hint");
             var txt = "Hajæ";
             var i;
+           
 
 
             for (i = 0; i < x.attributes.length; i++) {

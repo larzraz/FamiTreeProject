@@ -3,7 +3,7 @@
 
 <main class="hg__main">
 
-    <box class="tree">
+    <div class="tree">
         <ul>
             <li>
                 <figure class="human">
@@ -18,7 +18,7 @@
                             {
                         <figure class="human">
                             
-                            <div id="@fm.HintId" class="image"></div>
+                            <div id="@fm.HintId" class="generation1"></div>
                          
 
                             <figcaption>@fm.Name</figcaption>
@@ -34,7 +34,7 @@
                             {
                         <figure class="humancentered">
                             <div>
-                                <div id="@fm.HintId" class="image"></div>
+                                <div id="@fm.HintId" class="generation1"></div>
 
                                 <figcaption>@fm.Name</figcaption>
                             </div>
@@ -48,7 +48,7 @@
                                     @if (fm.Generation == 2 && fm.GenerationPlaceID == 1)
                                     {
                                         <figure class="human">
-                                            <div id="@fm.HintId" class="image"></div>
+                                            <div id="@fm.HintId" class="image generation2" ></div>
 
                                             <figcaption>@fm.Name</figcaption>
                                         </figure>
@@ -63,7 +63,7 @@
                                     {
                                 <figure class="humancentered">
                                     <div>
-                                        <div id="@fm.HintId" class="image"></div>
+                                        <div id="@fm.HintId" class="image generation2"></div>
 
                                         <figcaption>@fm.Name</figcaption>
                                         </div>
@@ -77,7 +77,7 @@
                                             @if (fm.Generation == 3 && fm.GenerationPlaceID == 1)
                                             {
                                                 <figure class="human">
-                                                    <div id="@fm.HintId" class="image"></div>
+                                                    <div id="@fm.HintId" class="image generation3"></div>
                                                     <figcaption>@fm.Name</figcaption>
                                                 </figure>
                                             }
@@ -89,7 +89,7 @@
                                             @if (fm.Generation == 3 && fm.GenerationPlaceID == 2)
                                             {
                                                 <figure class="human">
-                                                    <div id="@fm.HintId" class="image"></div>
+                                                    <div id="@fm.HintId" class="image generation3"></div>
                                                     <figcaption>@fm.Name</figcaption>
                                                 </figure>
                                             }
@@ -103,7 +103,7 @@
                                     @if (fm.Generation == 2 && fm.GenerationPlaceID == 3)
                                     {
                                         <figure class="human">
-                                            <div id="@fm.HintId" class="image"></div>
+                                            <div id="@fm.HintId" class="image generation3"></div>
                                             <figcaption>@fm.Name</figcaption>
                                         </figure>
                                     }
@@ -123,6 +123,7 @@
     var img = document.getElementById('hint');
     var lement;
     var imghit = document.getElementById(lement);
+    var hintcounter = 0;
    
     
     var hanna = document.getElementById('1');
@@ -132,9 +133,9 @@
     var rasmus = document.getElementById('5');
     var hunna = document.getElementById('6');
     var benjamin = document.getElementById('7');
-
+    
     hanna.onclick = function () {
-        
+
         document.getElementById("demo").innerHTML = "1";
         lement = "1";
         imghit = document.getElementById(lement);
@@ -147,6 +148,7 @@
         lement = "2";
         imghit = document.getElementById(lement);
         compareImages();
+
     }
 
     jeff.onclick = function () {
@@ -175,7 +177,7 @@
     function compareImages() {
         if
         ("persona " + imghit.attributes[0].value == img.attributes[1].value) {
-           
+
             var change;
             var personId = null;
             var imghitId = imghit.attributes[0].value;
@@ -188,25 +190,66 @@
                 case "2":
                     personId = "jonna";
                     break;
-                case  "3":
+                case "3":
                     personId = "jeff";
                     break;
-                case  "4":
+                case "4":
                     personId = "jorah";
                     break;
-                case  "5":
+                case "5":
                     personId = "rasmus";
                     break;
                 default:
-                    personId = "rasmus";
+                    personId = "image";
             }
 
             change.attributes[1].value = personId;
             document.getElementById("demos").innerHTML = imghit.attributes[1].value + imghit.attributes[0].value;
 
-                
-            
+
+
         } else {
+            switch (hintcounter) {
+                case 0: {
+                        var hint1 = document.getElementById("hint1");
+                    hint1.innerText = "Colour";
+                    if (img.attributes[1].value == "persona 1" || img.attributes[1].value == "persona 2") {
+                        hanna.style.border = "2px solid red";
+                        jonna.style.border = "2px solid red";
+                    }
+                    if (img.attributes[1].value == "persona 3" || img.attributes[1].value == "persona 4" || img.attributes[1].value == "persona 5") {
+                        jeff.style.border = "2px solid red";
+                        jorah.style.border = "2px solid red";
+                        rasmus.style.border = "2px solid red";
+                    }
+                    if (img.attributes[1].value == "persona 6" || img.attributes[1].value == "persona 4" || img.attributes[1].value == "persona 7") {
+                        hunna.style.border = "2px solid red";
+                        benjamin.style.border = "2px solid red";
+                    }
+                    
+                        hintcounter++;
+                        break;
+                    }
+                case 1: {
+                        var hint2 = document.getElementById("hint2");
+                        hint2.innerText = "Audio";
+                        hintcounter++;
+                        break;
+                    }
+                case 2: {
+                        var hint3 = document.getElementById("hint3");
+                        hint3.innerText = "Video 1";
+                        hintcounter++;
+                        break;
+                    }
+                case 3: {
+                        var hint4 = document.getElementById("hint4");
+                        hint4.innerText = "Video 2";
+                        hintcounter++;
+                        break;
+                    }
+                default: hintcounter = 0;
+            }
             document.getElementById("demos").innerHTML = "yolo";
         }
 
