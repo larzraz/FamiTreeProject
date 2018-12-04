@@ -94,6 +94,18 @@ div.rasmus {
     width: 80px;
     height: auto;
 }
+
+div.hunna {
+    content: url(/img/Hunnah.png);
+    width: 80px;
+    height: auto;
+}
+
+div.benjamin {
+    content: url(/img/Benjamin.png);
+    width: 80px;
+    height: auto;
+}
 .generation1 {
     content: url(/img/persona.png);
     width: 80px;

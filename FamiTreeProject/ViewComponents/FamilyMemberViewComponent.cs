@@ -18,6 +18,7 @@ namespace FamiTreeProject.ViewComponents
         public IViewComponentResult Invoke()
         {
             var familyMembers = _familyMembers.GetFamilyMembers();
+        
             return View(familyMembers);
         }  
           

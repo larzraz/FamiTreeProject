@@ -1,121 +1,76 @@
 ﻿@model FamiTreeProject.ViewModels.HomeViewModel
 @{var familyMembers = Model.FamilyMembers; }
+@{var testClass = Model.TestClass;
 
+    var hans = testClass;}
+
+<head>
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link href="~/css/jquery.orgchart.css" media="all" rel="stylesheet" type="text/css" />
+</head>
 <main class="hg__main">
 
-    <div class="tree">
-        <ul>
-            <li>
-                <figure class="human">
-                    <img class="person" src="img/persona.png">
-                    <figcaption>Hannah</figcaption>
-                </figure>
-                <ul>
-                    <li>
-                        @foreach (var fm in familyMembers)
-                        {
-                            @if (fm.Generation == 1 && fm.GenerationPlaceID == 1)
-                            {
-                        <figure class="human">
-                            
-                            <div id="@fm.HintId" class="generation1"></div>
-                         
 
-                            <figcaption>@fm.Name</figcaption>
-                        </figure>
-                            }
-                        }
-                    </li>
-
-                    <li>
-                        @foreach (var fm in familyMembers)
-                        {
-                            @if (fm.Generation == 1 && fm.GenerationPlaceID == 2)
-                            {
-                        <figure class="humancentered">
-                            <div>
-                                <div id="@fm.HintId" class="generation1"></div>
-
-                                <figcaption>@fm.Name</figcaption>
-                            </div>
-                        </figure>
-                            }
-                        }
-                        <ul>
-                            <li>
-                                @foreach (var fm in familyMembers)
-                                {
-                                    @if (fm.Generation == 2 && fm.GenerationPlaceID == 1)
-                                    {
-                                        <figure class="human">
-                                            <div id="@fm.HintId" class="image generation2" ></div>
-
-                                            <figcaption>@fm.Name</figcaption>
-                                        </figure>
-                                    }
-                                }
-                            </li>
-
-                            <li>
-                                @foreach (var fm in familyMembers)
-                                {
-                                    @if (fm.Generation == 2 && fm.GenerationPlaceID == 2)
-                                    {
-                                <figure class="humancentered">
-                                    <div>
-                                        <div id="@fm.HintId" class="image generation2"></div>
-
-                                        <figcaption>@fm.Name</figcaption>
-                                        </div>
-                                </figure>
-                                    }
-                                }
-                                <ul>
-                                    <li>
-                                        @foreach (var fm in familyMembers)
-                                        {
-                                            @if (fm.Generation == 3 && fm.GenerationPlaceID == 1)
-                                            {
-                                                <figure class="human">
-                                                    <div id="@fm.HintId" class="image generation3"></div>
-                                                    <figcaption>@fm.Name</figcaption>
-                                                </figure>
-                                            }
-                                        }
-                                    </li>
-                                    <li>
-                                        @foreach (var fm in familyMembers)
-                                        {
-                                            @if (fm.Generation == 3 && fm.GenerationPlaceID == 2)
-                                            {
-                                                <figure class="human">
-                                                    <div id="@fm.HintId" class="image generation3"></div>
-                                                    <figcaption>@fm.Name</figcaption>
-                                                </figure>
-                                            }
-                                        }
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                @foreach (var fm in familyMembers)
-                                {
-                                    @if (fm.Generation == 2 && fm.GenerationPlaceID == 3)
-                                    {
-                                        <figure class="human">
-                                            <div id="@fm.HintId" class="image generation3"></div>
-                                            <figcaption>@fm.Name</figcaption>
-                                        </figure>
-                                    }
-                                }
-                            </li>
-
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+    <h1 style="margin-top:150px;">HEST</h1>
+    <div id="orgChartContainer">
+        <div id="orgChart"></div>
     </div>
+    <div id="consoleOutput">
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <script type="text/javascript">
+       
+        var test = @Html.Raw(Json.Serialize(hans));
+                
+        var testData = test;
+      
+    </script>
+    <script type="text/javascript" src="~/js/jquery.orgchart.js"></script>
+    <script type="text/javascript">
+
+
+
+        $(function () {
+            org_chart = $('#orgChart').orgChart({
+                data: testData,
+                showControls: true,
+                allowEdit: true,
+                onAddNode: function (node) {
+                    log('Created new node on node ' + node.data.id);
+                    org_chart.newNode(node.data.id);
+                },
+                onDeleteNode: function (node) {
+                    log('Deleted node ' + node.data.id);
+                    org_chart.deleteNode(node.data.id);
+                },
+                onClickNode: function (node) {
+                    log('Clicked node ' + node.data.id);
+                }
+
+            });
+        });
+
+        // just for example purpose
+        function log(text) {
+            $('#consoleOutput').append('<p>' + text + '</p>')
+        }
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-36251023-1']);
+        _gaq.push(['_setDomainName', 'jqueryscript.net']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
 </main>
 
 
@@ -134,126 +89,6 @@
     var hunna = document.getElementById('6');
     var benjamin = document.getElementById('7');
     
-    hanna.onclick = function () {
-
-        document.getElementById("demo").innerHTML = "1";
-        lement = "1";
-        imghit = document.getElementById(lement);
-        compareImages();
-    }
-
-    jonna.onclick = function () {
-
-        document.getElementById("demo").innerHTML = "2";
-        lement = "2";
-        imghit = document.getElementById(lement);
-        compareImages();
-
-    }
-
-    jeff.onclick = function () {
-
-        document.getElementById("demo").innerHTML = "3";
-        lement = "3";
-        imghit = document.getElementById(lement);
-        compareImages();
-    }
-
-    jorah.onclick = function () {
-
-        document.getElementById("demo").innerHTML = "4";
-        lement = "4";
-        imghit = document.getElementById(lement);
-        compareImages();
-    }
-
-    rasmus.onclick = function () {
-
-        document.getElementById("demo").innerHTML = "5";
-        lement = "5";
-        imghit = document.getElementById(lement);
-        compareImages();
-    }
-    function compareImages() {
-        if
-        ("persona " + imghit.attributes[0].value == img.attributes[1].value) {
-
-            var change;
-            var personId = null;
-            var imghitId = imghit.attributes[0].value;
-            change = document.getElementById(lement);
-
-            switch (imghitId) {
-                case "1":
-                    personId = "hanna";
-                    break;
-                case "2":
-                    personId = "jonna";
-                    break;
-                case "3":
-                    personId = "jeff";
-                    break;
-                case "4":
-                    personId = "jorah";
-                    break;
-                case "5":
-                    personId = "rasmus";
-                    break;
-                default:
-                    personId = "image";
-            }
-
-            change.attributes[1].value = personId;
-            document.getElementById("demos").innerHTML = imghit.attributes[1].value + imghit.attributes[0].value;
-
-
-
-        } else {
-            switch (hintcounter) {
-                case 0: {
-                        var hint1 = document.getElementById("hint1");
-                    hint1.innerText = "Colour";
-                    if (img.attributes[1].value == "persona 1" || img.attributes[1].value == "persona 2") {
-                        hanna.style.border = "2px solid red";
-                        jonna.style.border = "2px solid red";
-                    }
-                    if (img.attributes[1].value == "persona 3" || img.attributes[1].value == "persona 4" || img.attributes[1].value == "persona 5") {
-                        jeff.style.border = "2px solid red";
-                        jorah.style.border = "2px solid red";
-                        rasmus.style.border = "2px solid red";
-                    }
-                    if (img.attributes[1].value == "persona 6" || img.attributes[1].value == "persona 4" || img.attributes[1].value == "persona 7") {
-                        hunna.style.border = "2px solid red";
-                        benjamin.style.border = "2px solid red";
-                    }
-                    
-                        hintcounter++;
-                        break;
-                    }
-                case 1: {
-                        var hint2 = document.getElementById("hint2");
-                        hint2.innerText = "Audio";
-                        hintcounter++;
-                        break;
-                    }
-                case 2: {
-                        var hint3 = document.getElementById("hint3");
-                        hint3.innerText = "Video 1";
-                        hintcounter++;
-                        break;
-                    }
-                case 3: {
-                        var hint4 = document.getElementById("hint4");
-                        hint4.innerText = "Video 2";
-                        hintcounter++;
-                        break;
-                    }
-                default: hintcounter = 0;
-            }
-            document.getElementById("demos").innerHTML = "yolo";
-        }
-
-
-    }
+   
 </script>
 
