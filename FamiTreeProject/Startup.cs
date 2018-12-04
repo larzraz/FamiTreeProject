@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FamiTreeProject.DAL;
 using FamiTreeProject.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,10 +35,11 @@ namespace FamiTreeProject
 
             services.AddTransient<FamilyMembersDataContext>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddTransient<UserInitializer>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, UserInitializer userSeeder)
         {
             if (env.IsDevelopment())
             {
@@ -60,6 +62,8 @@ namespace FamiTreeProject
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            UserContext context = new UserContext();
+            userSeeder.Seed(context).Wait();
         }
     }
 }
