@@ -7,6 +7,7 @@ namespace FamiTreeProject.Models
 {
     public class User
     {
+        public int RoleId { get; set; } //admin, bruger, pårørende 
         public int UserID { get; set; }
         public string userName { get; set; }
         public string eMail { get; set; }
