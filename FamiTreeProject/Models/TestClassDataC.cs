@@ -59,9 +59,8 @@ namespace FamiTreeProject.Models
                   }); }
         public IEnumerable<TestClass> GetTestClass()
         {
-            var db = new TestClassDataC();
-            var TCEnum = db.Subjects.ToList();
-            return TCEnum;
+           
+            return Subjects.ToList();
         }
     }
 }
