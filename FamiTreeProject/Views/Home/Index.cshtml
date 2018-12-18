@@ -98,10 +98,11 @@
                 onAddNode: function (node) {
                     log('Created new node on node ' + node.data.id);
                     org_chart.newNode(node.data.id);
+
                     
                 },
                 onDeleteNode: function (node) {
-                    log('Deleted node ' + node.data.id);
+                    log('Deleted node ' + node.data.id );
                     org_chart.deleteNode(node.data.id);
                 },
                 onClickNode: function (node) {
