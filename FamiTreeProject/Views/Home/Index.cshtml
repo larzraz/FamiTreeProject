@@ -9,27 +9,85 @@
     <link href="~/css/jquery.orgchart.css" media="all" rel="stylesheet" type="text/css" />
 </head>
 <main class="hg__main">
+    
 
-
-    <h1 style="margin-top:150px;">HEST</h1>
+    <h1 id="tester" style="margin-top:150px;">FamiTree</h1>
     <div id="orgChartContainer">
         <div id="orgChart"></div>
     </div>
     <div id="consoleOutput">
     </div>
-    
+
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <script type="text/javascript">
-       
+
         var test = @Html.Raw(Json.Serialize(hans));
-                
+
         var testData = test;
-      
+
     </script>
+    <script>
+        var imghitt = 3;
+
+        var img = document.getElementById('hint');
+        var lement;
+        var imghit = document.getElementById(lement);
+        var hintcounter = 0;
+
+
+        var hanna = document.getElementById('1');
+        var jonna = document.getElementById('2');
+        var jeff = document.getElementById('3');
+        var jorah = document.getElementById('4');
+        var rasmus = document.getElementById('5');
+        var hunna = document.getElementById('6');
+        var benjamin = document.getElementById('7');
+
+        function compareImages() {
+            if
+            ("persona " + imghitt == img.attributes[1].value) {
+
+                var change;
+                var personId = null;
+               
+                switch (imghitt) {
+
+                    case "2":
+                        personId = "jonna";
+                        tester.innerText = "jonna";
+                        break;
+                    case "3":
+                    case "3":
+                        personId = "jeff";
+                        tester.innerText = "jeff";
+                        break;
+                    case "4":
+                    case "4":
+                        personId = "jorah";
+                        tester.innerText = "jeffjorah";
+                        break;
+                    case "5":
+                    case "5":
+                        personId = "rasmus";
+                        tester.innerText = "jonnjoraha";
+                        
+                        break;
+                    default:
+                        personId = "rasmus";
+                        personId = "image";
+
+                }
+            }
+        }
+
+
+    </script>
+
+
     <script type="text/javascript" src="~/js/jquery.orgchart.js"></script>
     <script type="text/javascript">
-
+        
 
 
         $(function () {
@@ -40,6 +98,7 @@
                 onAddNode: function (node) {
                     log('Created new node on node ' + node.data.id);
                     org_chart.newNode(node.data.id);
+                    
                 },
                 onDeleteNode: function (node) {
                     log('Deleted node ' + node.data.id);
@@ -47,11 +106,29 @@
                 },
                 onClickNode: function (node) {
                     log('Clicked node ' + node.data.id);
+                    imghitt = node.data.id;
+                    tester.innerText = "Forkert";
+                    if
+                    ("persona " + imghitt == img.attributes[1].value) {
+                        tester.innerText = img.attributes[1].value;
+                    } else {
+                        hintcounter++
+                        if (hintcounter == 1)
+                            hint1.innerText = "Generation";
+                        if (hintcounter == 2)
+                            hint2.innerText = "Lydfil";
+                        if (hintcounter == 3)
+                            hint3.innerText = "Videofil";
+                        if (hintcounter >= 4)
+                            hint4.innerText = "Præsentation";
+                    }
+                    
+                    compareImages();
                 }
 
             });
         });
-
+      
         // just for example purpose
         function log(text) {
             $('#consoleOutput').append('<p>' + text + '</p>')
@@ -74,21 +151,4 @@
 </main>
 
 
-<script>
-    var img = document.getElementById('hint');
-    var lement;
-    var imghit = document.getElementById(lement);
-    var hintcounter = 0;
-   
-    
-    var hanna = document.getElementById('1');
-    var jonna = document.getElementById('2');
-    var jeff = document.getElementById('3');
-    var jorah = document.getElementById('4');
-    var rasmus = document.getElementById('5');
-    var hunna = document.getElementById('6');
-    var benjamin = document.getElementById('7');
-    
-   
-</script>
 
