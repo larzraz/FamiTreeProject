@@ -21,6 +21,7 @@ namespace FamiTreeProject.Models
         public TestClassDataC(DbContextOptions<TestClassDataC> options)
             : base(options)
         {
+            Database.EnsureCreated();
         }
 
         public virtual DbSet<TestClass> Subjects { get; set; }
