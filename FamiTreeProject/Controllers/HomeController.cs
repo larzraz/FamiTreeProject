@@ -21,6 +21,11 @@ namespace FamiTreeProject.Controllers
             hvm = new HomeViewModel();
             
         }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
        
         public IActionResult Index()
         {
