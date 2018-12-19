@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using FamiTreeProject.api;
 
 namespace FamiTreeProject.ViewModels
 {
@@ -11,9 +12,11 @@ namespace FamiTreeProject.ViewModels
     {
         private readonly FamilyMembersDataContext _familyMember = new FamilyMembersDataContext();
         private readonly TestClassDataC _testClass = new TestClassDataC();
+        
+
         public FamilyMember SelectedFamilyMember { get; set; }
         public FamilyMember ClickedFamilyMember { get; set; }
-        private Board SelectedBoard;
+       
         public IEnumerable<FamilyMember> FamilyMembers { get; set; }
         public IEnumerable<TestClass> TestClass { get; set; }
 
