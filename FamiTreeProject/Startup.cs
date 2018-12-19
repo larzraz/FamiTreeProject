@@ -35,9 +35,15 @@ namespace FamiTreeProject
 
             services.AddTransient<FamilyMembersDataContext>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            var connection = @"Server=(localdb)\\mssqllocaldb;Database=Master; Trusted_Connection = True;";
+
             services.AddDbContext<TestClassDataC>
-                (options => options.UseSqlServer(connection));
+                (
+
+            options =>
+            {
+                var connection = @"Server=(localdb)\\mssqllocaldb;Database=FamiTree; Trusted_Connection = True;";
+
+                options.UseSqlServer(connection); });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

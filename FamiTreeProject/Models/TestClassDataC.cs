@@ -60,8 +60,10 @@ namespace FamiTreeProject.Models
                   }); }
         public IEnumerable<TestClass> GetTestClass()
         {
-           
+            Database.EnsureCreated();
             return Subjects.ToList();
+
+          
         }
     }
 }
