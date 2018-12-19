@@ -9,6 +9,9 @@ namespace FamiTreeProject.ViewModels
 {
     public class RegisterViewModel
     {
+        public long id { get; set; }
+        public string Name { get; set; }
+
         [Required]
         [EmailAddress, MaxLength(500)]
         [Display(Name = "Email")]
