@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -33,8 +34,15 @@ namespace FamiTreeProject
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<IdentityDataContext>();
             services.AddTransient<FamilyMembersDataContext>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddDbContext<IdentityDataContext>(options =>
+            {
+                var connectionString = "@Server = (localdb)\\mssqllocaldb; Database = FamiTree; Trusted_Connection = True; ";
+            });
 
             services.AddDbContext<TestClassDataC>
                 (
@@ -63,6 +71,7 @@ namespace FamiTreeProject
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseFileServer();
+            app.UseIdentity();
 
             app.UseMvc(routes =>
             {

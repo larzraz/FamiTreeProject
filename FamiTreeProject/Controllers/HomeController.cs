@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FamiTreeProject.Models;
 using FamiTreeProject.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FamiTreeProject.Controllers
 {
@@ -50,5 +51,35 @@ namespace FamiTreeProject.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [Authorize]
+        [HttpGet, Route("Create")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        //[Authorize]
+        //[HttpPost, Route("Create")]
+        //public IActionResult Create(Post post)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View();
+
+        //        post.Author = User.Identity.Name;
+        //        post.Posted = DateTime.Now;
+
+        //        _db.Posts.Add(post);
+        //        _db.SaveChanges();
+
+        //        return RedirectToAction("Post", "Blog", new
+        //        {
+        //            year = post.Posted.Year,
+        //            month = post.Posted.Month,
+        //            key = post.Key
+        //        });
+        //    }
+        //}
     }
 }
