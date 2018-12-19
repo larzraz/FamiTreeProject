@@ -56,35 +56,5 @@ namespace FamiTreeProject.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
-        [Authorize]
-        [HttpGet, Route("Create")]
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        //[Authorize]
-        //[HttpPost, Route("Create")]
-        //public IActionResult Create(Post post)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View();
-
-        //        post.Author = User.Identity.Name;
-        //        post.Posted = DateTime.Now;
-
-        //        _db.Posts.Add(post);
-        //        _db.SaveChanges();
-
-        //        return RedirectToAction("Post", "Blog", new
-        //        {
-        //            year = post.Posted.Year,
-        //            month = post.Posted.Month,
-        //            key = post.Key
-        //        });
-        //    }
-        //}
     }
 }
