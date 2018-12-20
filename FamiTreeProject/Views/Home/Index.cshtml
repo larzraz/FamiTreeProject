@@ -22,76 +22,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <script type="text/javascript">
-
-        var test = @Html.Raw(Json.Serialize(hans));
-
-        var testData = test;
-
+        var testData =  @Html.Raw(Json.Serialize(hans));
     </script>
-    <script>
-        var imghitt = 3;
-
-        var img = document.getElementById('hint');
-        var lement;
-        var imghit = document.getElementById(lement);
-        var hintcounter = 0;
-
-
-        var hanna = document.getElementById('1');
-        var jonna = document.getElementById('2');
-        var jeff = document.getElementById('3');
-        var jorah = document.getElementById('4');
-        var rasmus = document.getElementById('5');
-        var hunna = document.getElementById('6');
-        var benjamin = document.getElementById('7');
-
-        function compareImages() {
-            if
-            ("persona " + imghitt == img.attributes[1].value) {
-
-                var change;
-                var personId = null;
-
-                switch (imghitt) {
-
-                    case "2":
-                        personId = "jonna";
-                        tester.innerText = "jonna";
-                        break;
-                    case "3":
-                    case "3":
-                        personId = "jeff";
-                        tester.innerText = "jeff";
-                        break;
-                    case "4":
-                    case "4":
-                        personId = "jorah";
-                        tester.innerText = "jeffjorah";
-                        break;
-                    case "5":
-                    case "5":
-                        personId = "rasmus";
-                        tester.innerText = "jonnjoraha";
-
-                        break;
-                    default:
-                        personId = "rasmus";
-                        personId = "image";
-
-                }
-            }
-        }
-
-
-    </script>
-
-
     <script type="text/javascript" src="~/js/jquery.orgchart.js"></script>
-
     <script type="text/javascript">
-
-
-
+        var imghit = 3;
+        var img = document.getElementById('hint');
+        var hintcounter = 0;
         $(function () {
             org_chart = $('#orgChart').orgChart({
                 data: testData,
@@ -108,13 +45,8 @@
                                 id: node.data.id,
                                 name: node.data.name,
                                 parent: node.data.parent
-
                             }
-
                         });
-
-
-
                 },
                 onDeleteNode: function (node) {
                     log('Deleted node ' + node.data.id);
@@ -122,10 +54,10 @@
                 },
                 onClickNode: function (node) {
                     log('Clicked node ' + node.data.id);
-                    imghitt = node.data.id;
+                    imghit = node.data.id;
                     tester.innerText = "Forkert";
                     if
-                    ("persona " + imghitt == img.attributes[1].value) {
+                    ("persona " + imghit == img.attributes[1].value) {
                         tester.innerText = img.attributes[1].value;
                     } else {
                         hintcounter++
@@ -137,14 +69,10 @@
                             hint3.innerText = "Videofil";
                         if (hintcounter >= 4)
                             hint4.innerText = "Præsentation";
-                    }
-
-                    compareImages();
+                    }                    
                 }
-
             });
         });
-
         // just for example purpose
         function log(text) {
             $('#consoleOutput').append('<p>' + text + '</p>')

@@ -21,6 +21,7 @@
   <ItemGroup>
     <Folder Include="Controllers\NewFolder\" />
     <Folder Include="Models\slet\" />
+    <Folder Include="Views\Shared\Components\" />
   </ItemGroup>
 
 </Project>

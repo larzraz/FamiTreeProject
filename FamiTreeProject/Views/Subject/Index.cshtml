@@ -2,7 +2,11 @@
 @{var familyMembers = Model.FamilyMembers; }
 @{var testClass = Model.TestClass;
 
+
     var hans = testClass;}
+@{
+    Layout = "_Layout";
+}
 
 <head>
     <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
@@ -103,7 +107,7 @@
                     $.ajax(
                         {
                             type: "Post",
-                            url: "Subject/Post",
+                            url: "api/subject",
                             data: {
                                 id: node.data.id,
                                 name: node.data.name,
