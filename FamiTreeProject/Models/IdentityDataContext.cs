@@ -13,7 +13,7 @@ namespace FamiTreeProject.Models
         public IdentityDataContext(DbContextOptions<IdentityDataContext> options)
             : base(options)
         {
-            
+            Database.EnsureCreated(); 
         }
     }
 }

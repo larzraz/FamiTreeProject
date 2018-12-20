@@ -31,7 +31,7 @@
         var hintcounter = 0;
         $(function () {
             org_chart = $('#orgChart').orgChart({
-                data: testData,
+                data: dataForOrgChart,
                 showControls: true,
                 allowEdit: true,
                 onAddNode: function (node) {
@@ -58,7 +58,7 @@
                     tester.innerText = "Forkert";
                     if
                     ("persona " + imghit == img.attributes[1].value) {
-                        tester.innerText = img.attributes[1].value;
+                        tester.innerText = node.data.name;
                     } else {
                         hintcounter++
                         if (hintcounter == 1)
