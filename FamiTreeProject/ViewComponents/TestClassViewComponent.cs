@@ -11,8 +11,8 @@ namespace FamiTreeProject.ViewComponents
     [ViewComponent]
     public class TestClassViewComponent : ViewComponent
     {
-           private readonly TestClassDataC _testClass;
-        public TestClassViewComponent(TestClassDataC testClassC)
+           private readonly SubjectsDataContext _testClass;
+        public TestClassViewComponent(SubjectsDataContext testClassC)
         {
             _testClass = testClassC;
         }
@@ -20,7 +20,7 @@ namespace FamiTreeProject.ViewComponents
         {
          
             
-            var testClass = _testClass.GetTestClass();
+            var testClass = _testClass.GetSubjects();
             var hestClass = JsonConvert.SerializeObject(testClass);
             return View(hestClass);
         }

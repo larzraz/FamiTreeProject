@@ -1,8 +1,8 @@
 ﻿@model FamiTreeProject.ViewModels.HomeViewModel
 @{var familyMembers = Model.FamilyMembers; }
-@{var testClass = Model.TestClass;
+@{var subjects = Model.Subjects;
 
-    var hans = testClass;}
+   }
 
 <head>
     <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
@@ -22,7 +22,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <script type="text/javascript">
-        var testData =  @Html.Raw(Json.Serialize(hans));
+        var dataForOrgChart =  @Html.Raw(Json.Serialize(subjects));
     </script>
     <script type="text/javascript" src="~/js/jquery.orgchart.js"></script>
     <script type="text/javascript">

@@ -13,15 +13,15 @@ namespace FamiTreeProject.api
     [Route("api/subject")]
     public class SubjectController : ControllerBase
     {
-        private readonly TestClassDataC _db;
+        private readonly SubjectsDataContext _db;
 
-        public SubjectController(TestClassDataC db)
+        public SubjectController(SubjectsDataContext db)
         {
             _db = db;
         }
         // GET: api/<controller>
         [HttpGet]
-        public IEnumerable<TestClass> Get()
+        public IEnumerable<Subject> Get()
         {
             return _db.Subjects.ToList();
         }
@@ -35,7 +35,7 @@ namespace FamiTreeProject.api
 
         // POST api/<controller>
         [HttpPost]
-        public IActionResult  Post([FromBody]TestClass subject)
+        public IActionResult  Post([FromBody]Subject subject)
         {
             if (subject == null)
             {

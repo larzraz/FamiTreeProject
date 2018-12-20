@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FamiTreeProject.Models
 {
-    public class TestClassDataC:DbContext
+    public class SubjectsDataContext:DbContext
     {
-        public TestClassDataC()
+        public SubjectsDataContext()
         {
 
         }
@@ -18,19 +18,19 @@ namespace FamiTreeProject.Models
             optionsBuilder.UseSqlServer(_connectionString);
         }
 
-        public TestClassDataC(DbContextOptions<TestClassDataC> options)
+        public SubjectsDataContext(DbContextOptions<SubjectsDataContext> options)
             : base(options)
         {
             Database.EnsureCreated();
         }
 
-        public virtual DbSet<TestClass> Subjects { get; set; }
+        public virtual DbSet<Subject> Subjects { get; set; }
 
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<TestClass>().HasData(new TestClass
+            modelBuilder.Entity<Subject>().HasData(new Subject
             {
                 id = 1,
                 name = "Hanna",
@@ -38,27 +38,27 @@ namespace FamiTreeProject.Models
 
 
             },
-                  new TestClass
+                  new Subject
                   {
                       id = 2,
                       name = "Hanna",
                       parent = 1,
 
                   },
-                  new TestClass
+                  new Subject
                   {
                       id = 3,
                       name = "Henna",
                       parent = 2,
 
                   },
-                  new TestClass
+                  new Subject
                   {
                       id = 4,
                       name = "Jorah",
                       parent = 2,
                   }); }
-        public IEnumerable<TestClass> GetTestClass()
+        public IEnumerable<Subject> GetSubjects()
         {
             Database.EnsureCreated();
             return Subjects.ToList();

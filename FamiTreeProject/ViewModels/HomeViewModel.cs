@@ -11,14 +11,13 @@ namespace FamiTreeProject.ViewModels
     public class HomeViewModel
     {
         private readonly FamilyMembersDataContext _familyMember = new FamilyMembersDataContext();
-        private readonly TestClassDataC _testClass = new TestClassDataC();
+        private readonly SubjectsDataContext _subjects = new SubjectsDataContext();
         
 
         public FamilyMember SelectedFamilyMember { get; set; }
-        public FamilyMember ClickedFamilyMember { get; set; }
-       
+      
         public IEnumerable<FamilyMember> FamilyMembers { get; set; }
-        public IEnumerable<TestClass> TestClass { get; set; }
+        public IEnumerable<Subject> Subjects { get; set; }
 
 
 
@@ -35,7 +34,7 @@ namespace FamiTreeProject.ViewModels
         {
            
            FamilyMembers = _familyMember.GetFamilyMembers();
-            TestClass = _testClass.GetTestClass();
+            Subjects = _subjects.GetSubjects();
            AssignRandomFamilyMember();
            
         }

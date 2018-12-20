@@ -41,10 +41,11 @@ namespace FamiTreeProject
 
             services.AddDbContext<IdentityDataContext>(options =>
             {
-                var connectionString = "@Server = (localdb)\\mssqllocaldb; Database = FamiTree; Trusted_Connection = True; ";
+                var connectionString = @"Server=(localdb)\\mssqllocaldb;Database=FamiTree_Identity; Trusted_Connection = True;";
+                options.UseSqlServer(connectionString);
             });
 
-            services.AddDbContext<TestClassDataC>
+            services.AddDbContext<SubjectsDataContext>
                 (
 
             options =>
