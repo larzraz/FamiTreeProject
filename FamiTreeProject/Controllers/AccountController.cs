@@ -10,15 +10,16 @@ namespace FamiTreeProject.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signinManager;
+
         public AccountController(
             UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager
+            SignInManager<IdentityUser> signinManager
             )
         {
             _userManager = userManager;
-            _signInManager = signInManager;
+            _signinManager = signinManager;
         }
 
         public IActionResult Login()
@@ -27,42 +28,46 @@ namespace FamiTreeProject.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel login, string returUrl = null)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginViewModel login, string returnUrl = null)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
 
-            var result = await _signInManager.PasswordSignInAsync(
-                login.Email, login.Password,
+            var result = await _signinManager.PasswordSignInAsync(
+                login.EmailAddress, login.Password,
                 login.RememberMe, false
                 );
 
             if (!result.Succeeded)
             {
-                ModelState.AddModelError("", "Login Error!");
+                ModelState.AddModelError("", "Login error!");
                 return View();
             }
 
-            if (string.IsNullOrWhiteSpace(returUrl))
+            if (string.IsNullOrWhiteSpace(returnUrl))
+            {
                 return RedirectToAction("Index", "Home");
+            }
 
-            return Redirect(returUrl);
-            
+            return Redirect(returnUrl);
         }
 
         [HttpPost]
         public async Task<IActionResult> Logout(string returnUrl = null)
         {
-            await _signInManager.SignOutAsync();
+            await _signinManager.SignOutAsync();
 
             if (string.IsNullOrWhiteSpace(returnUrl))
+            {
                 return RedirectToAction("Index", "Home");
-
+            }
             return Redirect(returnUrl);
-           
         }
+
+
         public IActionResult Register()
         {
             return View(new RegisterViewModel());
@@ -76,8 +81,8 @@ namespace FamiTreeProject.Controllers
 
             var newUser = new IdentityUser
             {
-                Email = registration.Email,
-                UserName = registration.Email,
+                Email = registration.EmailAddress,
+                UserName = registration.EmailAddress,
             };
 
             var result = await _userManager.CreateAsync(newUser, registration.Password);
@@ -88,7 +93,6 @@ namespace FamiTreeProject.Controllers
                 {
                     ModelState.AddModelError("", error);
                 }
-
                 return View();
             }
             return RedirectToAction("Login");

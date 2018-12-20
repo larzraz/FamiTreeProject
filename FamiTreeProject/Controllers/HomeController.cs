@@ -22,11 +22,6 @@ namespace FamiTreeProject.Controllers
             
         }
 
-        public IActionResult Login()
-        {
-            return View();
-        }
-       
         public IActionResult Index()
         {
             return View(hvm);
