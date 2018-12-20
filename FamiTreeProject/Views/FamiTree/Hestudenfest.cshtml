@@ -1,0 +1,33 @@
+﻿@model FamiTreeProject.ViewModels.HomeViewModel
+@{var familyMember = Model.SelectedFamilyMember;
+    var familyMembers = Model.FamilyMembers; }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/Main.css">
+    <title>FAMTREE</title>
+</head>
+<body class="hg">
+
+
+    <aside class="hg__left">
+        <button id="hint4" type="button">Hint 4</button>
+        <button id="hint3" type="button">Hint 3</button>
+        <button id="hint2" type="button">Hint 2</button>
+        <button id="hint1" type="button">Hint 1</button>
+        <figure class="human">
+            <a>
+                <img id="hint" class="persona @(familyMember.HintId)" src="img/@(familyMember.Name).png" alt="person">
+                <figcaption>Who is this?</figcaption>
+            </a>
+        </figure>
+    </aside>
+
+
+
+
+    @RenderBody()
+</body>
+</html>

@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace FamiTreeProject.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly HomeViewModel hvm;

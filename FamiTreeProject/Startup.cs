@@ -41,7 +41,7 @@ namespace FamiTreeProject
 
             services.AddDbContext<IdentityDataContext>(options =>
             {
-                var connectionString = @"Server=(localdb)\\mssqllocaldb;Database=FamiTree_Identity; Trusted_Connection = True;";
+                var connectionString = @"Server=(localdb)\\mssqllocaldb;Database=FamiTree; Trusted_Connection = True;";
                 options.UseSqlServer(connectionString);
             });
 
@@ -78,7 +78,7 @@ namespace FamiTreeProject
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Account}/{action=Login}/{id?}");
             });
         }
     }

@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  famitreeproject:
+    image: ${DOCKER_REGISTRY-}famitreeproject
+    build:
+      context: .
+      dockerfile: FamiTreeProject/Dockerfile

@@ -24,7 +24,7 @@ namespace FamiTreeProject.Controllers
 
         public IActionResult Login()
         {
-            return View(new LoginViewModel());
+            return View();
         }
 
         [HttpPost]
