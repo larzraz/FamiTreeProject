@@ -72,7 +72,7 @@ namespace FamiTreeProject
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseFileServer();
-            app.UseIdentity();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

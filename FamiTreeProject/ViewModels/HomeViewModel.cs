@@ -12,10 +12,10 @@ namespace FamiTreeProject.ViewModels
     {
         private readonly FamilyMembersDataContext _familyMember = new FamilyMembersDataContext();
         private readonly SubjectsDataContext _subjects = new SubjectsDataContext();
-        
+
 
         public FamilyMember SelectedFamilyMember { get; set; }
-      
+
         public IEnumerable<FamilyMember> FamilyMembers { get; set; }
         public IEnumerable<Subject> Subjects { get; set; }
 
@@ -23,7 +23,7 @@ namespace FamiTreeProject.ViewModels
 
         public FamilyMember AssignRandomFamilyMember()
         {
-            FamilyMember[] listOfFM =_familyMember.GetFamilyMembers().ToArray();
+            FamilyMember[] listOfFM = _familyMember.GetFamilyMembers().ToArray();
 
             Random rand = new Random();
             int randomSelectedFamilyMember = rand.Next(listOfFM.Count() - 1);
@@ -32,15 +32,15 @@ namespace FamiTreeProject.ViewModels
 
         public HomeViewModel()
         {
-           
-           FamilyMembers = _familyMember.GetFamilyMembers();
+
+            FamilyMembers = _familyMember.GetFamilyMembers();
             Subjects = _subjects.GetSubjects();
-           AssignRandomFamilyMember();
-           
+            AssignRandomFamilyMember();
+
         }
-        
-          
-        
+
+
+
 
 
 

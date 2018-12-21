@@ -14,11 +14,11 @@ namespace FamiTreeProject.Controllers
     public class HomeController : Controller
     {
         private readonly HomeViewModel hvm;
-        
+        private readonly SubjectsDataContext _db;
 
-        public HomeController()
+        public HomeController(SubjectsDataContext db)
         {
-
+            _db = db;
             hvm = new HomeViewModel();
             
         }
@@ -27,7 +27,17 @@ namespace FamiTreeProject.Controllers
         {
             return View(hvm);
         }
+        [HttpPost]
+        public IActionResult Post([FromBody]Subject subject)
+        {
+            if (subject == null)
+            {
+                return BadRequest();
+            }
+            _db.Subjects.Add(subject);
+            _db.SaveChanges();
+            return Ok(subject);
+        }
 
-      
     }
 }

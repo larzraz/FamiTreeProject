@@ -12,7 +12,7 @@ $(function () {
             $.ajax(
                 {
                     type: "Post",
-                    url: "Subject/Post",
+                    url: "Home/Post",
                     data: {
                         id: node.data.id,
                         name: node.data.name,
